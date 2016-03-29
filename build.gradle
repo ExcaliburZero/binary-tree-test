@@ -1,0 +1,22 @@
+plugins {
+	id 'java'
+	id 'checkstyle'
+}
+
+check.dependsOn 'checkstyle'
+
+sourceSets{
+	main.java.srcDir "src"
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//compile group: 'com.puppycrawl.tools', name: 'checkstyle', version: '6.1.1'
+}
+
+task checkstyle(type: Checkstyle) {
+	configFile = new File("checkstyle.xml")
+}
